@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Certificate Verification | NASA</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230B3D91'/%3E%3Ctext x='50' y='58' font-size='26' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'%3ENASA%3C/text%3E%3C/svg%3E">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #fff;
+    color: #1a1a1a;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* ===== NASA HEADER ===== */
+  .nasa-header {
+    background: #000;
+    color: #fff;
+    width: 100%;
+  }
+  .nasa-header-top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 14px 40px;
+    gap: 20px;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .explore-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+    padding: 6px 0;
+  }
+  .explore-btn:hover { color: #FC3D21; }
+  .explore-btn svg { transition: transform 0.2s; }
+  .explore-btn:hover svg { transform: rotate(180deg); }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #fff;
+    padding: 7px 14px;
+    min-width: 180px;
+    background: transparent;
+  }
+  .search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+    font-family: inherit;
+  }
+  .search-box input::placeholder { color: #aaa; }
+
+  .header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nasa-logo-link { display: block; line-height: 0; }
+  .nasa-logo-img {
+    width: 62px;
+    height: 62px;
+    display: block;
+    transition: opacity 0.2s;
+  }
+  .nasa-logo-link:hover .nasa-logo-img { opacity: 0.85; }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 28px;
+  }
+  .header-right a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .header-right a:hover { color: #FC3D21; }
+  .header-right a svg { transition: transform 0.2s; }
+  .header-right a:hover svg { transform: rotate(180deg); }
+
+  .nasa-plus {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .nasa-plus .live-badge {
+    background: #000;
+    color: #FC3D21;
+    border: 1.5px solid #FC3D21;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 6px;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .nasa-plus:hover { color: #FC3D21; }
+
+  .nasa-header-sub {
+    background: #000;
+    border-top: 1px solid #2a2a2a;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .nasa-header-sub a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+  }
+  .nasa-header-sub a:hover { color: #FC3D21; }
+  .nasa-header-sub a svg { transition: transform 0.2s; }
+  .nasa-header-sub a:hover svg { transform: rotate(180deg); }
+
+  /* ===== MAIN ===== */
+  main {
+    flex: 1;
+    background: #fff;
+    padding: 60px 40px 90px;
+  }
+
+  .block-content {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .block-content h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    letter-spacing: 0.1px;
+  }
+
+  .block-subtitle {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d8d8d8;
+  }
+
+  .verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #e8f5e9;
+    color: #1b5e20;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #a5d6a7;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    letter-spacing: 0.2px;
+  }
+  .verified-badge .check {
+    width: 18px;
+    height: 18px;
+    background: #1b5e20;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .block-desc {
+    font-size: 15.5px;
+    color: #444;
+    line-height: 1.75;
+    margin-bottom: 32px;
+    max-width: 680px;
+  }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 32px;
+    font-size: 14.5px;
+  }
+  .info-table tr { border-bottom: 1px solid #e5e5e5; }
+  .info-table tr:last-child { border-bottom: none; }
+  .info-table td {
+    padding: 14px 0;
+    vertical-align: top;
+  }
+  .info-table td:first-child {
+    width: 240px;
+    color: #555;
+    font-weight: 600;
+    padding-right: 20px;
+  }
+  .info-table td:last-child { color: #1a1a1a; }
+
+  .section-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0B3D91;
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #FC3D21;
+  }
+
+  .recipient-block {
+    background: #f9fafb;
+    border-left: 4px solid #0B3D91;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .recipient-block h3 {
+    font-size: 16px;
+    color: #0B3D91;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: baseline;
+  }
+  .recipient-block h3 .ref {
+    font-family: 'Courier New', monospace;
+    font-size: 12.5px;
+    color: #666;
+    font-weight: 500;
+  }
+  .recipient-block ul { list-style: none; font-size: 14.5px; }
+  .recipient-block ul li {
+    padding: 6px 0;
+    display: flex;
+    gap: 10px;
+  }
+  .recipient-block ul li strong {
+    min-width: 140px;
+    color: #555;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .notice-box {
+    background: #fff8f0;
+    border-left: 4px solid #FC3D21;
+    padding: 16px 22px;
+    font-size: 13.5px;
+    color: #555;
+    line-height: 1.7;
+    margin-top: 32px;
+  }
+  .notice-box strong { color: #1a1a1a; }
+
+  /* ===== NASA FOOTER ===== */
+  .nasa-footer {
+    background: #000;
+    color: #fff;
+    padding: 55px 40px 25px;
+    font-size: 14px;
+  }
+  .footer-inner { max-width: 1400px; margin: 0 auto; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+
+  .footer-brand .footer-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .footer-brand h3 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 18px;
+    color: #fff;
+  }
+  .footer-brand p {
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 320px;
+  }
+  .footer-brand a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 12px;
+    transition: color 0.2s;
+  }
+  .footer-brand a:hover { color: #FC3D21; }
+
+  .join-us {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .join-us span.txt { color: #fff; font-weight: 700; font-size: 15px; }
+  .join-us .arrow-badge {
+    background: #FC3D21;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .footer-col h4 {
+    font-size: 14.5px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #fff;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 12px; }
+  .footer-col ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: #FC3D21; }
+
+  .live-tag {
+    background: #000;
+    color: #FC3D21;
+    border: 1.5px solid #FC3D21;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 1px 5px;
+    letter-spacing: 1px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .social-icons a:hover { background: #FC3D21; }
+  .social-icons svg { width: 18px; height: 18px; fill: #fff; }
+  .footer-col .extra-link {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 12px;
+    transition: color 0.2s;
+  }
+  .footer-col .extra-link:hover { color: #FC3D21; }
+
+  .footer-bottom {
+    border-top: 1px solid #2a2a2a;
+    padding-top: 22px;
+  }
+  .footer-bottom-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 18px;
+    font-size: 13px;
+  }
+  .footer-bottom-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-bottom-links a:hover { color: #FC3D21; }
+
+  .footer-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    font-size: 12.5px;
+    color: #999;
+  }
+  .footer-meta strong { color: #fff; font-weight: 600; }
+
+  @media (max-width: 1100px) {
+    .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 900px) {
+    .nasa-header-top {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 14px 20px;
+    }
+    .header-left, .header-right {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .nasa-header-sub {
+      gap: 18px;
+      padding: 12px 20px;
+      font-size: 13px;
+    }
+    .header-right a, .nasa-plus { font-size: 14px; }
+    .explore-btn { font-size: 14px; }
+    .nasa-footer { padding: 40px 20px 20px; }
+    main { padding: 45px 25px 70px; }
+  }
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  }
+  @media (max-width: 640px) {
+    .block-content h1 { font-size: 24px; }
+    .info-table td:first-child { width: 140px; font-size: 13.5px; }
+    .info-table td:last-child { font-size: 13.5px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-brand h3 { font-size: 19px; }
+    .search-box { min-width: 140px; }
+    .recipient-block ul li { flex-direction: column; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NASA HEADER ===== -->
+<header class="nasa-header">
+  <div class="nasa-header-top">
+    <div class="header-left">
+      <a href="https://www.nasa.gov/" class="explore-btn" target="_blank" rel="noopener">
+        Explore
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <form class="search-box" onsubmit="event.preventDefault(); window.open('https://www.nasa.gov/?search=' + encodeURIComponent(this.q.value), '_blank');">
+        <input type="text" name="q" placeholder="Search" aria-label="Search NASA">
+      </form>
+    </div>
+
+    <div class="header-center">
+      <a href="https://www.nasa.gov/" class="nasa-logo-link" target="_blank" rel="noopener" aria-label="NASA Home">
+        <img 
+          src="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg" 
+          alt="NASA Logo" 
+          class="nasa-logo-img"
+          onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230B3D91%22/><text x=%2250%22 y=%2260%22 font-size=%2224%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 font-family=%22Arial%22>NASA</text></svg>';"
+        >
+      </a>
+    </div>
+
+    <div class="header-right">
+      <a href="https://www.nasa.gov/news/" target="_blank" rel="noopener">
+        News &amp; Events
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+          <path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="https://www.nasa.gov/multimedia/" target="_blank" rel="noopener">
+        Multimedia
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+          <path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="https://plus.nasa.gov/" class="nasa-plus" target="_blank" rel="noopener">
+        NASA+
+        <span class="live-badge">LIVE</span>
+      </a>
+    </div>
+  </div>
+
+  <nav class="nasa-header-sub">
+    <a href="https://www.nasa.gov/news-release/" target="_blank" rel="noopener">News Releases</a>
+    <a href="https://www.nasa.gov/recently-published/" target="_blank" rel="noopener">Recently Published</a>
+    <a href="https://www.nasa.gov/blogs/" target="_blank" rel="noopener">Blogs</a>
+    <a href="https://www.nasa.gov/newsletters/" target="_blank" rel="noopener">Newsletters</a>
+    <a href="https://www.nasa.gov/socialmedia/" target="_blank" rel="noopener">
+      Social Media
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+        <path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <a href="https://www.nasa.gov/budgets-plans-and-reports/" target="_blank" rel="noopener">Budgets and Reports</a>
+    <a href="https://www.nasa.gov/news/" target="_blank" rel="noopener">
+      More
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+        <path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </nav>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main>
+  <div class="block-content">
+
+    <h1>Certificate Verification</h1>
+    <div class="block-subtitle">Official verification portal of the NASA Office of the Chief Information Security Officer.</div>
+
+    <div class="verified-badge">
+      <span class="check">✓</span>
+      Certificate Successfully Verified
+    </div>
+
+    <p class="block-desc">
+      This certificate has been verified against the official records of the NASA Office of the Chief Information Security Officer (CISO). The details below correspond to a valid Certificate of Recognition issued by this office.
+    </p>
+
+    <table class="info-table">
+      <tr>
+        <td>Verification Code</td>
+        <td>NASA-CISO-2026-VER-0915-9F3A2C</td>
+      </tr>
+      <tr>
+        <td>Document Type</td>
+        <td>Certificate of Recognition</td>
+      </tr>
+      <tr>
+        <td>Issuing Authority</td>
+        <td>Office of the Chief Information Security Officer (CISO), NASA</td>
+      </tr>
+      <tr>
+        <td>Issued By</td>
+        <td>Kelvin Taylor, Chief Information Security Officer (CISO)</td>
+      </tr>
+      <tr>
+        <td>Date of Issue</td>
+        <td>September 15, 2026</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td><strong>Authentic &amp; Verified</strong></td>
+      </tr>
+    </table>
+
+    <h2 class="section-heading">Awarded Recipients</h2>
+
+    <div class="recipient-block">
+      <h3>
+        First Place — Men's Category
+        <span class="ref">NASA-CYBER-2026-0915-VK</span>
+      </h3>
+      <ul>
+        <li><strong>Full Name:</strong> Mr. Vahab Kermani</li>
+        <li><strong>Nationality:</strong> Iran</li>
+        <li><strong>Age:</strong> 17</li>
+        <li><strong>Title / Role:</strong> Ethical Hacker</li>
+        <li><strong>Achievement:</strong> Discovered a critical security vulnerability that allowed unauthorized access to classified NASA data.</li>
+        <li><strong>Prize Awarded:</strong> $1,800 USD</li>
+      </ul>
+    </div>
+
+    <div class="recipient-block">
+      <h3>
+        First Place — Women's Category
+        <span class="ref">NASA-CYBER-2026-0915-MV</span>
+      </h3>
+      <ul>
+        <li><strong>Full Name:</strong> Ms. Merry Virtanen</li>
+        <li><strong>Nationality:</strong> Finland</li>
+        <li><strong>Age:</strong> 32</li>
+        <li><strong>Title / Role:</strong> Ethical Hacker</li>
+        <li><strong>Achievement:</strong> Discovered a critical authentication bypass vulnerability in NASA systems.</li>
+        <li><strong>Prize Awarded:</strong> $1,800 USD</li>
+      </ul>
+    </div>
+
+    <div class="notice-box">
+      <strong>Notice:</strong> The personal details provided by the recipients, including age and nationality, are self-reported and have not been independently verified by NASA. Both recipients participated independently and are not affiliated with NASA's official Bug Bounty program.
+    </div>
+
+  </div>
+</main>
+
+<!-- ===== NASA FOOTER ===== -->
+<footer class="nasa-footer">
+  <div class="footer-inner">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img 
+          src="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg" 
+          alt="NASA Logo" 
+          class="footer-logo"
+          onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230B3D91%22/><text x=%2250%22 y=%2260%22 font-size=%2224%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 font-family=%22Arial%22>NASA</text></svg>';"
+        >
+        <h3>National Aeronautics and Space Administration</h3>
+        <p>NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.</p>
+        <a href="https://www.nasa.gov/about/" target="_blank" rel="noopener">About NASA's Mission</a>
+        <div class="join-us">
+          <a href="https://www.nasa.gov/careers/" target="_blank" rel="noopener" style="margin:0;">
+            <span class="txt">Join Us</span>
+          </a>
+          <span class="arrow-badge">↗</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <ul>
+          <li><a href="https://www.nasa.gov/" target="_blank" rel="noopener">Home</a></li>
+          <li><a href="https://www.nasa.gov/news/" target="_blank" rel="noopener">News &amp; Events</a></li>
+          <li><a href="https://www.nasa.gov/multimedia/" target="_blank" rel="noopener">Multimedia</a></li>
+          <li><a href="https://plus.nasa.gov/" target="_blank" rel="noopener">NASA+ <span class="live-tag">LIVE</span></a></li>
+          <li><a href="https://www.nasa.gov/missions/" target="_blank" rel="noopener">Missions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <ul>
+          <li><a href="https://www.nasa.gov/humans-in-space/" target="_blank" rel="noopener">Humans in Space</a></li>
+          <li><a href="https://science.nasa.gov/earth/" target="_blank" rel="noopener">Earth</a></li>
+          <li><a href="https://science.nasa.gov/solar-system/" target="_blank" rel="noopener">The Solar System</a></li>
+          <li><a href="https://science.nasa.gov/universe/" target="_blank" rel="noopener">The Universe</a></li>
+          <li><a href="https://science.nasa.gov/" target="_blank" rel="noopener">Science</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <ul>
+          <li><a href="https://www.nasa.gov/aeronautics/" target="_blank" rel="noopener">Aeronautics</a></li>
+          <li><a href="https://www.nasa.gov/technology/" target="_blank" rel="noopener">Technology</a></li>
+          <li><a href="https://www.nasa.gov/learning-resources/" target="_blank" rel="noopener">Learning Resources</a></li>
+          <li><a href="https://www.nasa.gov/about/" target="_blank" rel="noopener">About NASA</a></li>
+          <li><a href="https://www.nasa.gov/es/" target="_blank" rel="noopener">NASA en Español</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow NASA</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/NASA" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/nasa/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9c-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.67 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.67-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 105.84 12 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 118 12a4 4 0 014 4zm7.85-10.4a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg>
+          </a>
+          <a href="https://x.com/NASA" target="_blank" rel="noopener" aria-label="X">
+            <svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.22-6.82-5.96 6.82H1.66l7.73-8.84L1.21 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.02 4.13H5.06z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/NASA" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>
+          </a>
+        </div>
+        <a href="https://www.nasa.gov/socialmedia/" target="_blank" rel="noopener" class="extra-link">More NASA Social Accounts</a>
+        <a href="https://www.nasa.gov/newsletters/" target="_blank" rel="noopener" class="extra-link">NASA Newsletters</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-links">
+        <a href="https://www.nasa.gov/sitemap/" target="_blank" rel="noopener">Sitemap</a>
+        <a href="https://www.nasa.gov/for-media/" target="_blank" rel="noopener">For Media</a>
+        <a href="https://www.nasa.gov/privacy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://www.nasa.gov/foia/" target="_blank" rel="noopener">FOIA</a>
+        <a href="https://www.nasa.gov/no-fear-act/" target="_blank" rel="noopener">No FEAR Act</a>
+        <a href="https://oig.nasa.gov/" target="_blank" rel="noopener">Office of the IG</a>
+        <a href="https://www.nasa.gov/budgets-plans-and-reports/" target="_blank" rel="noopener">Budget &amp; Annual Reports</a>
+        <a href="https://www.nasa.gov/agency-financial-reports/" target="_blank" rel="noopener">Agency Financial Reports</a>
+        <a href="https://www.nasa.gov/contact/" target="_blank" rel="noopener">Contact NASA</a>
+        <a href="https://www.nasa.gov/accessibility/" target="_blank" rel="noopener">Accessibility</a>
+      </div>
+      <div class="footer-meta">
+        <span>Page Last Updated: <strong>Sep 15, 2026</strong></span>
+        <span>Page Editor: <strong>NASA CISO Office</strong></span>
+        <span>Responsible NASA Official: <strong>Kelvin Taylor</strong></span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
